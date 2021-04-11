@@ -10,10 +10,10 @@ class Map_problem:
         print(self.domain)
 
     def constrains_function(self, assignments):
-        connections = [ ('WA', 'NT'), ('WA','SA'),
-                        ('NT','Q'), ('NT','SA'),
+        connections = [ ('WA', 'NT'), ('WA', 'SA'),
+                        ('NT', 'Q'), ('NT', 'SA'),
                         ('SA', 'Q'), ('SA', 'V'),
-                        ('SA', 'NSW'), ('V','NSW'),
+                        ('SA', 'NSW'), ('V', 'NSW'),
                         ('NSW', 'Q')
                       ]
         for connection in connections:

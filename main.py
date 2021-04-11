@@ -1,7 +1,7 @@
 import map_problem
+import backtracking_search as BTA
 
 
-problem = map_problem.Map_problem(4)
-asignm = {'WA':1, 'SA':3, 'T':2}
-result = problem.constrains_function(asignm)
-print(result)
+problem = map_problem.Map_problem(3)
+solver = BTA.Backtracking_search(problem)
+print(solver.solve())
