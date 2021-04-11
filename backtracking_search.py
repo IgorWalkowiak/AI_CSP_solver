@@ -6,6 +6,8 @@ class Backtracking_search:
         self.problem = problem
         self.solutions = []
     def rec_backtracking_search(self, assignments):
+
+        #("rec_backtracking_search")
         if len(assignments) == len(self.problem.variables):
             return assignments
 
@@ -13,7 +15,8 @@ class Backtracking_search:
         #print(var)
         for domain_value in self.problem.domain:
             assignments[var] = domain_value
-            #print(assignments)
+            #if len(assignments) >3:
+                #print(assignments)
             if self.problem.constrains_function(assignments):
                 result = self.rec_backtracking_search(assignments)
                 if result != None:
