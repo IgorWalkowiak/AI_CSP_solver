@@ -1,10 +1,10 @@
-
+import copy
 
 
 class Backtracking_search:
     def __init__(self, problem):
         self.problem = problem
-
+        self.solutions = []
     def rec_backtracking_search(self, assignments):
         if len(assignments) == len(self.problem.variables):
             return assignments
@@ -17,7 +17,7 @@ class Backtracking_search:
             if self.problem.constrains_function(assignments):
                 result = self.rec_backtracking_search(assignments)
                 if result != None:
-                    return result
+                    self.solutions.append(copy.deepcopy(result))
                 del assignments[var]
             else:
                 del assignments[var]
