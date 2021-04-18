@@ -83,7 +83,7 @@ class Einstein_problem:
         except:
             inFront = True
 
-
+        #Kyrie eleison - what's that :C
         if (backChecked and not inBack and not frontChecked) or (frontChecked and not inFront and not frontChecked) or ((backChecked and frontChecked) and (not inFront and not inBack)):
             #print("5")
             return False
