@@ -1,12 +1,12 @@
 import copy
 
 
-def get_next_value_random(csp, assignments, var):
-    return csp.domain
+def get_next_value(var, temp_domains):
+    return temp_domains[var]
 
 
 # Wartość najmniej ograniczająca, czyli dająca najwięcej możliwości do eksploracji
-def get_next_least_constraining_value(csp, assignments, var):
+def get_next_least_constraining_value(csp, assignments, var, temp_domains):
     used_vars = assignments.keys()
     unused_neighbors = []
     for X, Y in csp.connections:
@@ -14,13 +14,17 @@ def get_next_least_constraining_value(csp, assignments, var):
             unused_neighbors.append(Y)
         elif Y == var and X not in used_vars:
             unused_neighbors.append(X)
-    values_of_neighbs = [(x, copy.deepcopy(csp.domain)) for x in unused_neighbors]
+
+    values_of_neighbs = [(x, copy.deepcopy(y)) for x, y in temp_domains.items()]
     for variable, available_values in values_of_neighbs:
         for X, Y in csp.connections:
-            if X == variable and Y in used_vars:
-                available_values.remove(assignments[Y])
-            elif Y == variable and X in used_vars:
-                available_values.remove(assignments[X])
+            try:
+                if X == variable and Y in used_vars:
+                    available_values.remove(assignments[Y])
+                elif Y == variable and X in used_vars:
+                    available_values.remove(assignments[X])
+            except:
+                pass
 
     values_to_return = {key: 0 for key in csp.domain}
     for value in csp.domain:

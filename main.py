@@ -4,10 +4,10 @@ import backtracking_search as BTA
 
 #problem = einstein_problem.Einstein_problem()
 problem = map_problem.Map_problem(3)
-solver = BTA.Backtracking_search(problem)
+solver = BTA.Backtracking_search(problem, False, False, True)
 solver.solve()
 
 print("DONE!")
 
-for solution in solver.solutions:
-    print(solution)
+print(len(solver.solutions))
+print(solver.node_visited)

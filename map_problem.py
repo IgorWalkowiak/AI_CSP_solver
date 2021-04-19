@@ -1,4 +1,3 @@
-
 class Map_problem:
     def __init__(self, color_number):
         self._color_number = color_number
@@ -22,5 +21,3 @@ class Map_problem:
             except:
                 pass
         return True
-
-
